@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python基礎教學-變數</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2,
+    p {
+      color: #333;
+    }
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #2980b9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Python基礎教學-變數</h1>
+    <p>在Python程式語言中，變數是一個核心概念，它們為我們提供了一種便利的方式來存儲和操作數據。在本文中，我們將深入探討Python中的變數，包括賦值、命名規則和作用域等方面的知識。
+
+    <h1>1. 賦值和變數類型</h1>
+    <p>在Python中，賦值是將值分配給變數的過程。這可以通過使用等號（=）來完成。例如：</p>
+    <pre>x = 10</pre>
+    <p>在這個例子中，我們將整數值10賦值給變數x。Python是一種動態類型語言，這意味著我們不需要明確聲明變數的類型，解釋器會根據賦予的值自動推斷。</p>
+
+    <h1>2. 命名規則</h1>
+    <p>在Python中，變數名稱需要遵守一定的命名規則：
+
+    變數名可以包含字母、數字和底線，但不能以數字開頭。
+    變數名區分大小寫，例如age和Age是不同的變數。
+    避免使用Python內置的關鍵字（如if、for、while等）作為變數名。
+    良好的變數命名可以使程式碼更易讀和維護。</p>
+
+    <h1>3. 作用域</h1>
+    <p>在Python中，變數的作用域指的是變數可見的範圍。主要有以下兩種作用域：
+
+    全域作用域（Global Scope）：在整個程式中都可以訪問的變數，通常在模塊層次定義。
+    區域作用域（Local Scope）：僅在特定區域或函數內部可訪問的變數，當函數執行完畢後，這些變數通常會被銷毀。</p>
+    <pre>x = 10 # 全域變數
+
+    def my_function():
+    y = 20 # 區域變數
+    print(x) # 可以訪問全域變數x
+    print(y)
+
+    my_function()
+    print(x)
+    print(y) # 這裡會拋出NameError，因為y是區域變數，超出了它的作用域範圍</pre>
+    <h1>4. 結語</h1>
+    <p>在本文中，我們談論了Python中變數的基本概念，包括賦值、命名規則和作用域。了解這些概念將有助於您更好地使用Python來開發程式，並撰寫更清晰、更易於維護的程式碼。希望本文對您有所幫助！</p>
+
+
+    <a href="/">返回首頁</a>
+  </div>
+</body>
+
+</html>

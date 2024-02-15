@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Add this in the <head> section of your HTML -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add this before the closing </head> tag -->
+  <script>
+    function setVisitCount() {
+      if (!localStorage.getItem('visitCount')) {
+        localStorage.setItem('visitCount', 1);
+      } else {
+        let count = parseInt(localStorage.getItem('visitCount'));
+        count++;
+        localStorage.setItem('visitCount', count);
+      }
+    }
+
+    function updateVisitCount() {
+      const visitCount = localStorage.getItem('visitCount');
+      const visitCountContainer = document.getElementById('visitCount');
+      if (visitCountContainer) {
+        visitCountContainer.textContent = `造訪人數：${visitCount}`;
+      }
+    }
+
+    function typeWriter(text, elementId, speed) {
+      const element = document.getElementById(elementId);
+      let i = 0;
+
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += `<span style="color: #007bff;">${text.charAt(i)}</span>`;
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+
+      type();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      setVisitCount();
+      updateVisitCount();
+      typeWriter("程式的世界充滿無限可能，每一行程式碼都是一個潛在的成就！", 'introText', 200); // 調整速度
+    });
+
+    document.addEventListener("scroll", function () {
+      var scrollPosition = window.scrollY;
+      var sections = document.querySelectorAll('.section');
+
+      sections.forEach(function (section) {
+        var offsetTop = section.offsetTop;
+        if (scrollPosition > offsetTop - window.innerHeight * 0.8) {
+          section.classList.add('fade-in');
+        }
+      });
+    });
+
+    // JavaScript函數用於顯示所有標籤
+    function showTags() {
+      // 獲取所有的標籤
+      var tags = document.querySelectorAll('a.nav-link');
+      var tagList = document.getElementById('tagList');
+
+      // 清空標籤列表
+      tagList.innerHTML = '';
+
+      // 將每個標籤添加到列表中
+      tags.forEach(function(tag) {
+        var li = document.createElement('li');
+        li.textContent = tag.textContent;
+        tagList.appendChild(li);
+      });
+
+      // 顯示彈出窗口
+      document.getElementById('tagPopup').style.display = 'block';
+    }
+
+    // JavaScript函數用於隱藏彈出視窗
+    function hideTags() {
+      document.getElementById('tagPopup').style.display = 'none';
+    }
+
+    // JavaScript函數用於顯示連結按鈕
+    function showLinks() {
+      var linksContainer = document.getElementById('linksContainer');
+      var dropdown = document.getElementById('dropdown');
+      if (dropdown.value === 'showLinks') {
+        linksContainer.style.display = 'block';
+      } else {
+        linksContainer.style.display = 'none';
+      }
+    }
+
+    // JavaScript函數用於在點擊網頁的任何位置後產生隨機顏色的小星星
+    document.addEventListener("click", function (event) {
+      var star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = (event.clientX - 5) + "px";
+      star.style.top = (event.clientY - 5) + "px";
+      star.style.backgroundColor = randomColor();
+      document.body.appendChild(star);
+      setTimeout(function () {
+        star.remove();
+      }, 1000);
+    });
+
+    // 隨機顏色函數
+    function randomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+  <title>關於我</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: url('https://img95.699pic.com/photo/60049/7854.jpg_wh300.jpg') center/cover no-repeat;
+      color: #333;
+    }
+
+    .container {
+      min-height: 100vh;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      padding: 100px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease;
+    }
+
+    .section.fade-in {
+      opacity: 1;
+    }
+
+    .link-button {
+      margin-bottom: 20px;
+      padding: 15px 30px;
+      font-size: 20px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .link-button:hover {
+      background-color: #0056b3;
+    }
+
+    .website-link {
+      padding: 10px;
+      font-size: 20px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* 調整視窗樣式 */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+
+    /* 下拉選單樣式 */
+    #dropdown {
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding: 8px;
+    }
+
+    /* 小星星樣式 */
+        .star {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          pointer-events: none;
+          animation: star-fall 1s linear;
+        }
+
+        @keyframes star-fall {
+          0% {
+            transform: translateY(0) rotate(0deg);
+          }
+
+          100% {
+            transform: translateY(-100vh) rotate(360deg);
+          }
+        }
+      </style>
+    </head>
+
+    <body>
+      <div class="container">
+        <!-- 下拉選單 -->
+        <select id="dropdown" onchange="showLinks()">
+          <option value="hideLinks">選擇操作</option>
+          <option value="showLinks">顯示所有連結</option>
+        </select>
+
+        <!-- 下方按鈕連結 -->
+        <div id="linksContainer" style="display: none;">
+          <!-- Navigation Menu -->
+          <nav>
+            <ul>
+              <li><a href="#home" style="color: #007bff;">Home</a></li>
+              <li><a href="#section1" style="color: #007bff;">機器人資訊</a></li>
+              <li><a href="#section2" style="color: #007bff;">邀請網址</a></li>
+              <li><a href="#section3" style="color: #007bff;">伺服器</a></li>
+              <li><a href="bot.html" target="_blank" style="color: #007bff;">Discordbot教學</a></li>
+              <li><a href="bot_reply.html" target="_blank" style="color: #007bff;">Discordbot進階教學-回覆訊息</a></li>
+              <li><a href="python1.html" target="_blank" style="color: #007bff;">Python基礎教學-變數</a></li>
+
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Visit Count Display -->
+        <div id="visitCount" class="website-link" style="position: fixed; top: 10px; right: 10px; color: #007bff;"></div>
+
+        <!-- Home Section -->
+        <div id="home" class="section">
+          <h1 id="introText" style="color: #007bff;"></h1>
+          <h1>
+            <font color='#007bff'>我平常會教你們寫一些discord的機器人和網站，如果有什麼關於程式的問題都可以私訊我的discord發問喔!!</font>
+          </h1>
+        </div>
+
+        <!-- Section 1 -->
+        <div id="section1" class="section">
+          <a href="https://discordservers.tw/bots/1178651569173041193" class="btn btn-primary btn-lg link-button">我的discord機器人詳細資訊</a>
+        </div>
+
+        <!-- Section 2 -->
+        <div id="section2" class="section">
+          <a href="https://discord.com/oauth2/authorize?client_id=%201178651569173041193&permissions=8&scope=bot" class="btn btn-success btn-lg link-button">我的discord機器人邀請網址</a>
+        </div>
+
+        <!-- Section 3 -->
+        <div id="section3" class="section">
+          <a href="https://discord.gg/4VCWZBgrDr" class="btn btn-danger btn-lg link-button">我的discord伺服器</a>
+        </div>
+
+        <!-- 彈出的視窗 -->
+        <div id="tagPopup" class="popup">
+          <h2>所有標籤</h2>
+          <ul id="tagList"></ul>
+          <button onclick="hideTags()" style="margin-top: 10px; padding: 8px 16px; font-size: 16px; background-color: #007bff; border: none; border-radius: 5px; color: #fff;">關閉</button>
+        </div>
+      </div>
+
+      <!-- 左上角的橫線 -->
+      <div class="popup-btn" onclick="showTags()"></div>
+
+      <!-- Add this before the closing </body> tag -->
+      <script>
+        // JavaScript函數用於顯示所有標籤
+        function showTags() {
+          // 獲取所有的標籤
+          var tags = document.querySelectorAll('ul.navbar-nav li a');
+          var tagList = document.getElementById('tagList');
+
+          // 清空標籤列表
+          tagList.innerHTML = '';
+
+          // 將每個標籤添加到列表中
+          tags.forEach(function(tag) {
+            var li = document.createElement('li');
+            li.textContent = tag.textContent;
+            tagList.appendChild(li);
+          });
+
+          // 顯示彈出窗口
+          document.getElementById('tagPopup').style.display = 'block';
+        }
+
+        // JavaScript函數用於隱藏彈出視窗
+        function hideTags() {
+          document.getElementById('tagPopup').style.display = 'none';
+        }
+      </script>
+    </body>
+
+</html>
