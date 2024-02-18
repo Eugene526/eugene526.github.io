@@ -214,21 +214,6 @@
             transform: translateY(-100vh) rotate(360deg);
           }
         }
-
-
-    /* 修改下拉選單樣式 */
-    .dropdown-menu {
-        width: 100%;
-        text-align: center;
-    }
-    .dropdown-content {
-        display: inline-block;
-        text-align: left;
-    }
-    .dropdown {
-        display: flex;
-        justify-content: center;
-    }
       </style>
     </head>
 
@@ -245,6 +230,7 @@
           <!-- Navigation Menu -->
           <nav>
             <ul>
+              <li><a href="#home" style="color: #007bff;">Home</a></li>
               <li><a href="#section1" style="color: #007bff;">機器人資訊</a></li>
               <li><a href="#section2" style="color: #007bff;">邀請網址</a></li>
               <li><a href="#section3" style="color: #007bff;">伺服器</a></li>
@@ -264,19 +250,18 @@
           <h1 id="introText" style="color: #007bff;"></h1>
         </div>
 
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        下拉選單
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <!-- 放入三個按鈕 -->
-        <div class="dropdown-content">
-            <a href="https://discordservers.tw/bots/1178651569173041193" class="btn btn-primary btn-lg link-button">我的discord機器人詳細資訊</a>
-            <a href="https://discord.com/oauth2/authorize?client_id=%201178651569173041193&permissions=8&scope=bot" class="btn btn-success btn-lg link-button">我的discord機器人邀請網址</a>
-            <a href="https://discord.gg/4VCWZBgrDr" class="btn btn-danger btn-lg link-button">我的discord伺服器</a>
-        </div>
-    </div>
+       <div id="section1" class="section">
+    <a href="https://discordservers.tw/bots/1178651569173041193" class="btn btn-primary btn-lg">我的discord機器人詳細資訊</a>
 </div>
+
+<div id="section2" class="section">
+    <a href="https://discord.com/oauth2/authorize?client_id=%201178651569173041193&permissions=8&scope=bot" class="btn btn-success btn-lg">我的discord機器人邀請網址</a>
+</div>
+
+<div id="section3" class="section">
+    <a href="https://discord.gg/4VCWZBgrDr" class="btn btn-danger btn-lg">我的discord伺服器</a>
+</div>
+
 
         <!-- 彈出的視窗 -->
         <div id="tagPopup" class="popup">
