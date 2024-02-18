@@ -201,6 +201,19 @@
           animation: star-fall 1s linear;
         }
 
+
+    .profile-picture {
+      width: 150px; /* 調整圖片寬度 */
+      height: 150px; /* 調整圖片高度 */
+      border-radius: 50%; /* 將邊框設置為圓形 */
+      overflow: hidden; /* 使圖片在圓形邊框內 */
+    }
+
+    .profile-picture img {
+      width: 100%; /* 使圖片填滿其容器 */
+      height: auto; /* 根據寬度自動調整高度 */
+    }
+
         @keyframes star-fall {
           0% {
             transform: translateY(0) rotate(0deg);
@@ -243,6 +256,9 @@
 
         <!-- Home Section -->
         <div id="home" class="section">
+          <div class="profile-picture">
+    <img src="C:/Users/eugen/Downloads/maxresdefault.jpg" alt="Profile Picture">
+  </div>
           <h1 id="introText" style="color: #007bff;">Eugenechan | Eugene</h1>
           <h1 id="introText" style="color: #007bff;">一位discordbot開發者，也是一位學生</h1>
           <h1><font color='#AED6F1'>學過的程式語言: Python、html、javascript</font></h1>
