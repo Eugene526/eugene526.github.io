@@ -41,11 +41,12 @@
       type();
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      setVisitCount();
-      updateVisitCount();
-      typeWriter("程式的世界充滿無限可能，每一行程式碼都是一個潛在的成就！", 'introText', 200); // 調整速度
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  setVisitCount();
+  updateVisitCount();
+  document.getElementById('introText').textContent = "Eugenechan | Eugene";
+});
+<h1>一個discordbot開發者，也是一位學生</h1>
 
     document.addEventListener("scroll", function () {
       var scrollPosition = window.scrollY;
