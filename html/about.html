@@ -170,6 +170,11 @@
       color: #333;
     }
 
+    /* 定義漸變效果的 CSS 類 */
+        .gradient-effect {
+            transition: background-color 0.5s ease;
+        }
+
     /* 調整視窗樣式 */
     .popup {
       display: none;
@@ -229,9 +234,9 @@
     <body>
       <div class="container">
         <!-- 下拉選單 -->
-        <select id="dropdown" onchange="showLinks()">
-          <option value="hideLinks">選擇操作</option>
-          <option value="showLinks">顯示所有連結</option>
+<select id="dropdown" onchange="applyGradientEffect(this.value)">
+            <option value="hideLinks">隱藏所有連結</option>
+            <option value="showLinks">顯示所有連結</option>
         </select>
 
         <!-- 下方按鈕連結 -->
@@ -315,6 +320,19 @@
           document.getElementById('tagPopup').style.display = 'none';
         }
       </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript 函數用於在下拉選單值改變時應用漸變效果
+        function applyGradientEffect(optionValue) {
+            const container = document.querySelector('.container');
+            if (optionValue === 'showLinks') {
+                container.classList.add('gradient-effect'); // 添加漸變效果的 CSS 類
+            } else {
+                container.classList.remove('gradient-effect'); // 移除漸變效果的 CSS 類
+            }
+        }
+    </script>
+      
     </body>
 
 </html>
