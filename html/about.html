@@ -187,24 +187,26 @@
       document.getElementById('tagPopup').style.display = 'none';
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(function(section) {
+    // 當網頁載入完成後觸發的漸變效果
+  document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(function(section) {
+      section.classList.add('fade-in');
+    });
+  });
+
+  // 當使用者滾動網頁時觸發的漸變效果
+  document.addEventListener("scroll", function() {
+    var scrollPosition = window.scrollY;
+    var sections = document.querySelectorAll('.section');
+
+    sections.forEach(function(section) {
+      var offsetTop = section.offsetTop;
+      if (scrollPosition > offsetTop - window.innerHeight * 0.8) {
         section.classList.add('fade-in');
-      });
+      }
     });
-
-    document.addEventListener("scroll", function() {
-      var scrollPosition = window.scrollY;
-      var sections = document.querySelectorAll('.section');
-
-      sections.forEach(function(section) {
-        var offsetTop = section.offsetTop;
-        if (scrollPosition > offsetTop - window.innerHeight * 0.8) {
-          section.classList.add('fade-in');
-        }
-      });
-    });
+  });
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
