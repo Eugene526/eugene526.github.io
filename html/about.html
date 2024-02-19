@@ -25,6 +25,7 @@
       overflow-y: auto;
       padding: 20px;
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.5s ease; /* 添加這一行 */
     }
 
     .section {
@@ -62,10 +63,6 @@
       font-size: 20px;
       text-decoration: none;
       color: #333;
-    }
-
-    .gradient-effect {
-      transition: background-color 0.5s ease;
     }
 
     .popup {
@@ -122,7 +119,7 @@
 </head>
 
 <body>
-  <div class="container gradient-effect">
+  <div class="container"> <!-- 這裡加了容器 -->
     <select id="dropdown" onchange="showLinks()">
       <option value="hideLinks">選擇操作</option>
       <option value="showLinks">顯示所有連結</option>
@@ -195,14 +192,6 @@
     function hideTags() {
       document.getElementById('tagPopup').style.display = 'none';
     }
-  </script>
-
-  <script>
-    // 當整個網頁載入完畢後，應用漸變效果
-    window.onload = function() {
-      const container = document.querySelector('.container');
-      container.classList.add('gradient-effect');
-    };
   </script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
