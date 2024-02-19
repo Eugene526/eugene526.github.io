@@ -10,132 +10,43 @@
 
   <!-- Add this before the closing </head> tag -->
   <script>
-    function setVisitCount() {
-      if (!localStorage.getItem('visitCount')) {
-        localStorage.setItem('visitCount', 1);
-      } else {
-        let count = parseInt(localStorage.getItem('visitCount'));
-        count++;
-        localStorage.setItem('visitCount', count);
-      }
+    // JavaScript函數用於網頁載入完成時的淡入效果
+    window.onload = function() {
+      var sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        section.classList.add('fade-in');
+      });
+    };
+
+    // JavaScript函數用於下拉選單打開時的淡入效果
+    function showLinks() {
+      var linksContainer = document.getElementById('linksContainer');
+      linksContainer.classList.toggle('fade-in');
     }
 
-    function updateVisitCount() {
-      const visitCount = localStorage.getItem('visitCount');
-      const visitCountContainer = document.getElementById('visitCount');
-      if (visitCountContainer) {
-        visitCountContainer.textContent = `造訪人數：${visitCount}`;
-      }
-    }
-
-    function typeWriter(text, elementId, speed) {
-      const element = document.getElementById(elementId);
-      let i = 0;
-
-      function type() {
-        if (i < text.length) {
-          element.innerHTML += `<span style="color: #007bff;">${text.charAt(i)}</span>`;
-          i++;
-          setTimeout(type, speed);
-        }
-      }
-
-      type();
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // 加入載入完成的過渡效果
-      document.body.classList.add('fade-in');
-    });
-
-    document.addEventListener("scroll", function () {
+    // JavaScript函數用於滾動時的淡入效果
+    document.addEventListener("scroll", function() {
       var scrollPosition = window.scrollY;
       var sections = document.querySelectorAll('.section');
 
-      sections.forEach(function (section) {
+      sections.forEach(function(section) {
         var offsetTop = section.offsetTop;
         if (scrollPosition > offsetTop - window.innerHeight * 0.8) {
           section.classList.add('fade-in');
         }
       });
     });
-
-    // JavaScript函數用於顯示所有標籤
-    function showTags() {
-      // 獲取所有的標籤
-      var tags = document.querySelectorAll('a.nav-link');
-      var tagList = document.getElementById('tagList');
-
-      // 清空標籤列表
-      tagList.innerHTML = '';
-
-      // 將每個標籤添加到列表中
-      tags.forEach(function(tag) {
-        var li = document.createElement('li');
-        li.textContent = tag.textContent;
-        tagList.appendChild(li);
-      });
-
-      // 顯示彈出窗口
-      document.getElementById('tagPopup').style.display = 'block';
-    }
-
-    // JavaScript函數用於隱藏彈出視窗
-    function hideTags() {
-      document.getElementById('tagPopup').style.display = 'none';
-    }
-
-    // JavaScript函數用於顯示連結按鈕
-    function showLinks() {
-      var linksContainer = document.getElementById('linksContainer');
-      var dropdown = document.getElementById('dropdown');
-      if (dropdown.value === 'showLinks') {
-        linksContainer.style.display = 'block';
-      } else {
-        linksContainer.style.display = 'none';
-      }
-    }
-
-    // JavaScript函數用於在點擊網頁的任何位置後產生隨機顏色的小星星
-    document.addEventListener("click", function (event) {
-      var star = document.createElement("div");
-      star.classList.add("star");
-      star.style.left = (event.clientX - 5) + "px";
-      star.style.top = (event.clientY - 5) + "px";
-      star.style.backgroundColor = randomColor();
-      document.body.appendChild(star);
-      setTimeout(function () {
-        star.remove();
-      }, 1000);
-    });
-
-    // 隨機顏色函數
-    function randomColor() {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
   </script>
   <title>關於我</title>
   <style>
     @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
     body {
-      font-family: 'Noto Sans TC', '黑體-繁','微軟正黑體',  sans-serif !important;
+      font-family: 'Noto Sans TC', '黑體-繁', '微軟正黑體', sans-serif !important;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
       background: url('https://images.unsplash.com/photo-1488866022504-f2584929ca5f?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
       color: #333;
-      /* 載入完成時的過渡效果 */
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    body.fade-in {
-      opacity: 1;
     }
 
     .container {
@@ -151,35 +62,28 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: opacity 0.5s ease;
+      opacity: 0; /* 起始時透明 */
+      transition: opacity 0.5s ease; /* 添加淡入效果 */
     }
 
-    .section.fade-in {
-      opacity: 1;
+    .fade-in {
+      opacity: 1; /* 淡入時改為完全不透明 */
     }
 
-    .link-button {
+    /* 下拉選單樣式 */
+    #dropdown {
       margin-bottom: 20px;
-      padding: 15px 30px;
-      font-size: 20px;
-      text-decoration: none;
-      color: #fff;
-      background-color: #007bff;
-      border: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      padding: 8px;
     }
 
-    .link-button:hover {
-      background-color: #0056b3;
+    /* 下方按鈕連結 */
+    #linksContainer {
+      display: none;
     }
 
-    .website-link {
-      padding: 10px;
-      font-size: 20px;
-      text-decoration: none;
-      color: #333;
+    .fade-in {
+      display: block !important; /* 顯示元素 */
     }
 
     /* 定義漸變效果的 CSS 類 */
@@ -199,13 +103,6 @@
       border: 1px solid #ccc;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       z-index: 9999;
-    }
-
-    /* 下拉選單樣式 */
-    #dropdown {
-      margin-bottom: 20px;
-      font-size: 16px;
-      padding: 8px;
     }
 
     /* 小星星樣式 */
@@ -252,7 +149,7 @@
     </select>
 
     <!-- 下方按鈕連結 -->
-    <div id="linksContainer" style="display: none;">
+    <div id="linksContainer">
       <!-- Navigation Menu -->
       <nav>
         <ul>
@@ -260,7 +157,6 @@
           <li><a href="bot.html" target="_blank" style="color: #007bff;">Discordbot教學</a></li>
           <li><a href="bot_reply.html" target="_blank" style="color: #007bff;">Discordbot進階教學-回覆訊息</a></li>
           <li><a href="python1.html" target="_blank" style="color: #007bff;">Python基礎教學-變數</a></li>
-
         </ul>
       </nav>
     </div>
@@ -302,32 +198,6 @@
   <div class="popup-btn" onclick="showTags()"></div>
 
   <!-- Add this before the closing </body> tag -->
-  <script>
-    // JavaScript函數用於顯示所有標籤
-    function showTags() {
-      // 獲取所有的標籤
-      var tags = document.querySelectorAll('ul.navbar-nav li a');
-      var tagList = document.getElementById('tagList');
-
-      // 清空標籤列表
-      tagList.innerHTML = '';
-
-      // 將每個標籤添加到列表中
-      tags.forEach(function(tag) {
-        var li = document.createElement('li');
-        li.textContent = tag.textContent;
-        tagList.appendChild(li);
-      });
-
-      // 顯示彈出窗口
-      document.getElementById('tagPopup').style.display = 'block';
-    }
-
-    // JavaScript函數用於隱藏彈出視窗
-    function hideTags() {
-      document.getElementById('tagPopup').style.display = 'none';
-    }
-  </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
