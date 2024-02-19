@@ -118,7 +118,7 @@
   <style>
     @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
     body {
-      font-family: 'Noto Sans TC', '黑體-繁','微軟正黑體',  sans-serif !important;
+      font-family: 'Noto Sans TC', '黑體-繁', '微軟正黑體', sans-serif !important;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
@@ -171,9 +171,9 @@
     }
 
     /* 定義漸變效果的 CSS 類 */
-        .gradient-effect {
-            transition: background-color 0.5s ease;
-        }
+    .gradient-effect {
+      transition: background-color 0.5s ease;
+    }
 
     /* 調整視窗樣式 */
     .popup {
@@ -197,17 +197,16 @@
     }
 
     /* 小星星樣式 */
-        .star {
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          pointer-events: none;
-          animation: star-fall 1s linear;
-        }
+    .star {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: star-fall 1s linear;
+    }
 
-
- .profile-picture {
+    .profile-picture {
       width: 150px; /* 調整圖片寬度 */
       height: 150px; /* 調整圖片高度 */
       border-radius: 50%; /* 將邊框設置為圓形 */
@@ -219,107 +218,106 @@
       height: 100%; /* 使圖片填滿其容器 */
       object-fit: cover; /* 確保圖片完全填滿容器 */
     }
-        @keyframes star-fall {
-          0% {
-            transform: translateY(0) rotate(0deg);
-          }
 
-          100% {
-            transform: translateY(-100vh) rotate(360deg);
-          }
-        }
-      </style>
-    </head>
+    @keyframes star-fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
 
-    <body>
-      <div class="container">
-        <!-- 下拉選單 -->
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 下拉選單 -->
     <select id="dropdown" onchange="showLinks()">
-          <option value="hideLinks">選擇操作</option>
-          <option value="showLinks">顯示所有教學文檔</option>
-        </select>
+      <option value="hideLinks">選擇操作</option>
+      <option value="showLinks">顯示所有教學文檔</option>
+    </select>
 
-        <!-- 下方按鈕連結 -->
-        <div id="linksContainer" style="display: none;">
-          <!-- Navigation Menu -->
-          <nav>
-            <ul>
-              <li><a href="#home" style="color: #007bff;">Home</a></li>
-              <li><a href="bot.html" target="_blank" style="color: #007bff;">Discordbot教學</a></li>
-              <li><a href="bot_reply.html" target="_blank" style="color: #007bff;">Discordbot進階教學-回覆訊息</a></li>
-              <li><a href="python1.html" target="_blank" style="color: #007bff;">Python基礎教學-變數</a></li>
+    <!-- 下方按鈕連結 -->
+    <div id="linksContainer" style="display: none;">
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
+          <li><a href="#home" style="color: #007bff;">Home</a></li>
+          <li><a href="bot.html" target="_blank" style="color: #007bff;">Discordbot教學</a></li>
+          <li><a href="bot_reply.html" target="_blank" style="color: #007bff;">Discordbot進階教學-回覆訊息</a></li>
+          <li><a href="python1.html" target="_blank" style="color: #007bff;">Python基礎教學-變數</a></li>
+        </ul>
+      </nav>
+    </div>
 
-            </ul>
-          </nav>
-        </div>
+    <!-- Visit Count Display -->
+    <div id="visitCount" class="website-link" style="position: fixed; top: 10px; right: 10px; color: #007bff;"></div>
 
-        <!-- Visit Count Display -->
-        <div id="visitCount" class="website-link" style="position: fixed; top: 10px; right: 10px; color: #007bff;"></div>
-
-        <!-- Home Section -->
-        <div id="home" class="section">
-          <div class="profile-picture">
-    <img src="https://github.com/Eugene526/eugene526.github.io/blob/main/maxresdefault.jpg?raw=true">
-  </div>
-          <h1 id="introText" style="color: #007bff;">Eugenechan | Eugene</h1>
-          <h1 id="introText" style="color: #007bff;">一位discordbot開發者，也是一位學生</h1>
-          <h1><font color='#AED6F1'>學過的程式語言: Python、html、javascript</font></h1>
-        </div>
-
-       <div id="section1" class="section">
-    <a href="https://discordservers.tw/bots/1178651569173041193" class="btn btn-primary btn-lg">我的discord機器人詳細資訊</a>
-</div>
-
-<div id="section2" class="section">
-    <a href="https://discord.com/oauth2/authorize?client_id=%201178651569173041193&permissions=8&scope=bot" class="btn btn-success btn-lg">我的discord機器人邀請網址</a>
-</div>
-
-<div id="section3" class="section">
-    <a href="https://discord.gg/4VCWZBgrDr" class="btn btn-danger btn-lg">我的discord伺服器</a>
-</div>
-
-
-        <!-- 彈出的視窗 -->
-        <div id="tagPopup" class="popup">
-          <h2>所有標籤</h2>
-          <ul id="tagList"></ul>
-          <button onclick="hideTags()" style="margin-top: 10px; padding: 8px 16px; font-size: 16px; background-color: #007bff; border: none; border-radius: 5px; color: #fff;">關閉</button>
-        </div>
+    <!-- Home Section -->
+    <div id="home" class="section">
+      <div class="profile-picture">
+        <img src="https://github.com/Eugene526/eugene526.github.io/blob/main/maxresdefault.jpg?raw=true">
       </div>
+      <h1 id="introText" style="color: #007bff;">Eugenechan | Eugene</h1>
+      <h1 id="introText" style="color: #007bff;">一位discordbot開發者，也是一位學生</h1>
+      <h1><font color='#AED6F1'>學過的程式語言: Python、html、javascript</font></h1>
+    </div>
 
-      <!-- 左上角的橫線 -->
-      <div class="popup-btn" onclick="showTags()"></div>
+    <div id="section1" class="section">
+      <a href="https://discordservers.tw/bots/1178651569173041193" class="btn btn-primary btn-lg">我的discord機器人詳細資訊</a>
+    </div>
 
-      <!-- Add this before the closing </body> tag -->
-      <script>
-        // JavaScript函數用於顯示所有標籤
-        function showTags() {
-          // 獲取所有的標籤
-          var tags = document.querySelectorAll('ul.navbar-nav li a');
-          var tagList = document.getElementById('tagList');
+    <div id="section2" class="section">
+      <a href="https://discord.com/oauth2/authorize?client_id=%201178651569173041193&permissions=8&scope=bot" class="btn btn-success btn-lg">我的discord機器人邀請網址</a>
+    </div>
 
-          // 清空標籤列表
-          tagList.innerHTML = '';
+    <div id="section3" class="section">
+      <a href="https://discord.gg/4VCWZBgrDr" class="btn btn-danger btn-lg">我的discord伺服器</a>
+    </div>
 
-          // 將每個標籤添加到列表中
-          tags.forEach(function(tag) {
-            var li = document.createElement('li');
-            li.textContent = tag.textContent;
-            tagList.appendChild(li);
-          });
+    <!-- 彈出的視窗 -->
+    <div id="tagPopup" class="popup">
+      <h2>所有標籤</h2>
+      <ul id="tagList"></ul>
+      <button onclick="hideTags()" style="margin-top: 10px; padding: 8px 16px; font-size: 16px; background-color: #007bff; border: none; border-radius: 5px; color: #fff;">關閉</button>
+    </div>
+  </div>
 
-          // 顯示彈出窗口
-          document.getElementById('tagPopup').style.display = 'block';
-        }
+  <!-- 左上角的橫線 -->
+  <div class="popup-btn" onclick="showTags()"></div>
 
-        // JavaScript函數用於隱藏彈出視窗
-        function hideTags() {
-          document.getElementById('tagPopup').style.display = 'none';
-        }
-      </script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-      
-    </body>
+  <!-- Add this before the closing </body> tag -->
+  <script>
+    // JavaScript函數用於顯示所有標籤
+    function showTags() {
+      // 獲取所有的標籤
+      var tags = document.querySelectorAll('ul.navbar-nav li a');
+      var tagList = document.getElementById('tagList');
+
+      // 清空標籤列表
+      tagList.innerHTML = '';
+
+      // 將每個標籤添加到列表中
+      tags.forEach(function(tag) {
+        var li = document.createElement('li');
+        li.textContent = tag.textContent;
+        tagList.appendChild(li);
+      });
+
+      // 顯示彈出窗口
+      document.getElementById('tagPopup').style.display = 'block';
+    }
+
+    // JavaScript函數用於隱藏彈出視窗
+    function hideTags() {
+      document.getElementById('tagPopup').style.display = 'none';
+    }
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
 
 </html>
