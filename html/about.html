@@ -157,16 +157,18 @@
         });
       });
 
-      // JavaScript函數用於顯示連結按鈕
-      function showLinks() {
-        var linksContainer = document.getElementById('linksContainer');
-        var dropdown = document.getElementById('dropdown');
-        if (dropdown.value === 'showLinks') {
-          linksContainer.style.display = 'block';
-        } else {
-          linksContainer.style.display = 'none';
-        }
-      }
+      <!-- JavaScript函數用於顯示連結按鈕 -->
+function showLinks() {
+  var linksContainer = document.getElementById('linksContainer');
+  var dropdown = document.getElementById('dropdown');
+  if (dropdown.value === 'showLinks') {
+    linksContainer.style.display = 'block';
+    // 觸發 AOS
+    AOS.refresh();
+  } else {
+    linksContainer.style.display = 'none';
+  }
+}
     </script>
   </div>
 </body>
