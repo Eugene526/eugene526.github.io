@@ -95,11 +95,6 @@
   <option value="showLinks" onclick="refreshAOS()">顯示所有教學文檔</option>
 </select>
 
-// 在点击下拉选项中的 "顯示所有教學文檔" 时触发 AOS 特效
-function refreshAOS() {
-  AOS.refresh();
-}
-
     <!-- 下方按鈕連結 -->
     <div id="linksContainer" style="display: none;">
       <!-- Navigation Menu -->
@@ -174,6 +169,11 @@ function showLinks() {
     linksContainer.style.display = 'none';
   }
   // 触发 AOS
+  AOS.refresh();
+}
+
+// 在点击下拉选项中的 "顯示所有教學文檔" 时触发 AOS 特效
+function refreshAOS() {
   AOS.refresh();
 }
     </script>
