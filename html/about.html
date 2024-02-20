@@ -165,11 +165,11 @@ function showLinks() {
   var dropdown = document.getElementById('dropdown');
   if (dropdown.value === 'showLinks') {
     linksContainer.style.display = 'block';
-    // 触发 AOS
-    AOS.refresh();
   } else {
     linksContainer.style.display = 'none';
   }
+  // 触发 AOS
+  AOS.refresh();
 }
     </script>
   </div>
