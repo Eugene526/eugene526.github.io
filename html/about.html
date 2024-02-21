@@ -291,6 +291,41 @@
         </div>
       </div>
 
+// AOS初始化
+AOS.init();
+
+// 当文档加载完成时触发AOS特效
+document.addEventListener('DOMContentLoaded', function() {
+  AOS.refresh();
+});
+
+// 当向下滑动时触发AOS特效
+document.addEventListener("scroll", function() {
+  var scrollPosition = window.scrollY;
+  var sections = document.querySelectorAll('.section');
+  sections.forEach(function(section) {
+    var offsetTop = section.offsetTop;
+    if (scrollPosition > offsetTop - window.innerHeight * 0.8) {
+      section.classList.add('fade-in');
+    }
+  });
+  // 触发 AOS
+  AOS.refresh();
+});
+
+// JavaScript函數用於顯示連結按鈕
+function showLinks() {
+  var linksContainer = document.getElementById('linksContainer');
+  var dropdown = document.getElementById('dropdown');
+  if (dropdown.value === 'showLinks') {
+    linksContainer.style.display = 'block';
+    // 触发 AOS
+    AOS.refresh();
+  } else {
+    linksContainer.style.display = 'none';
+  }
+}
+
       <!-- 左上角的橫線 -->
       <div class="popup-btn" onclick="showTags()"></div>
 
