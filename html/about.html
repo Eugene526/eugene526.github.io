@@ -122,7 +122,7 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      background: url('https://images.unsplash.com/photo-1436891620584-47fd0e565afb?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1488866022504-f2584929ca5f?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
       color: #333;
     }
 
@@ -290,41 +290,6 @@
           <button onclick="hideTags()" style="margin-top: 10px; padding: 8px 16px; font-size: 16px; background-color: #007bff; border: none; border-radius: 5px; color: #fff;">關閉</button>
         </div>
       </div>
-
-// AOS初始化
-AOS.init();
-
-// 当文档加载完成时触发AOS特效
-document.addEventListener('DOMContentLoaded', function() {
-  AOS.refresh();
-});
-
-// 当向下滑动时触发AOS特效
-document.addEventListener("scroll", function() {
-  var scrollPosition = window.scrollY;
-  var sections = document.querySelectorAll('.section');
-  sections.forEach(function(section) {
-    var offsetTop = section.offsetTop;
-    if (scrollPosition > offsetTop - window.innerHeight * 0.8) {
-      section.classList.add('fade-in');
-    }
-  });
-  // 触发 AOS
-  AOS.refresh();
-});
-
-// JavaScript函數用於顯示連結按鈕
-function showLinks() {
-  var linksContainer = document.getElementById('linksContainer');
-  var dropdown = document.getElementById('dropdown');
-  if (dropdown.value === 'showLinks') {
-    linksContainer.style.display = 'block';
-    // 触发 AOS
-    AOS.refresh();
-  } else {
-    linksContainer.style.display = 'none';
-  }
-}
 
       <!-- 左上角的橫線 -->
       <div class="popup-btn" onclick="showTags()"></div>
