@@ -113,9 +113,15 @@
       }
       return color;
     }
-  </script>
+</script>
   <title>關於我</title>
-  <style>
+  <script>
+    const checkbox = document.getElementById("checkbox")
+ checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode")
+})
+</script>
+   <style>
     @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
     body {
       font-family: 'Noto Sans TC', '黑體-繁','微軟正黑體',  sans-serif !important;
