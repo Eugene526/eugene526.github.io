@@ -11,17 +11,10 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            flex-direction: column;
             min-height: 100vh;
-        }
-        .header {
-            width: 100%;
-            background-color: #d4f1c5;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
         }
         .profile-pic {
             position: absolute;
@@ -31,6 +24,16 @@
             height: 50px;
             border-radius: 50%;
             cursor: pointer;
+        }
+        .header {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            padding: 10px;
+            background-color: #d4f1c5;
+            border-radius: 5px;
         }
         .section {
             background-color: #ffffff;
@@ -75,8 +78,11 @@
     </style>
 </head>
 <body>
-    <div class="header">Eugene Chan</div>
     <img src="https://render.skinmc.net/3d.php?user=5b4f88fb-0267-43f1-9eb2-a910187954b4&vr=-10&hr0&hrh=25&aa=&headOnly=true&ratio=50" alt="頭像" class="profile-pic" onclick="location.reload()">
+
+    <div class="header">
+        <h1>Eugene Chan</h1>
+    </div>
 
     <div class="section">
         <h2 onclick="toggleText('about-text')">關於我</h2>
@@ -105,7 +111,6 @@
             var text = document.getElementById(id);
             if (text.style.display === "none" || text.style.display === "") {
                 text.style.display = "block";
-
             } else {
                 text.style.display = "none";
             }
