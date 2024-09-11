@@ -11,10 +11,17 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            width: 100%;
+            background-color: #d4f1c5;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
         }
         .profile-pic {
             position: absolute;
@@ -58,9 +65,17 @@
             margin-bottom: 10px;
             text-align: center;
         }
+        .footer {
+            margin-top: auto;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            background-color: #d4f1c5;
+        }
     </style>
 </head>
 <body>
+    <div class="header">Eugene Chan</div>
     <img src="https://render.skinmc.net/3d.php?user=5b4f88fb-0267-43f1-9eb2-a910187954b4&vr=-10&hr0&hrh=25&aa=&headOnly=true&ratio=50" alt="頭像" class="profile-pic" onclick="location.reload()">
 
     <div class="section">
@@ -80,6 +95,7 @@
             <a href="mailto:eugenechan526@gmail.com">Email</a>
         </div>
     </div>
+
     <div class="footer">
         © 2024 Eugene Chan. All rights reserved.
     </div>
@@ -89,6 +105,7 @@
             var text = document.getElementById(id);
             if (text.style.display === "none" || text.style.display === "") {
                 text.style.display = "block";
+
             } else {
                 text.style.display = "none";
             }
