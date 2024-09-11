@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我</title>
+    <style>
+        body {
+            background-color: #a8e6cf; /* 使用單一背景色 */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .profile-pic {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            cursor: pointer;
+            margin: 0;
+            padding: 10px;
+            background-color: #d4f1c5;
+            border-radius: 5px;
+        }
+        .section p, .contact-buttons {
+            display: none;
+            text-align: left;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .contact-buttons a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #4CAF50; /* 綠色按鈕 */
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://render.skinmc.net/3d.php?user=5b4f88fb-0267-43f1-9eb2-a910187954b4&vr=-10&hr0&hrh=25&aa=&headOnly=true&ratio=50" alt="頭像" class="profile-pic" onclick="location.reload()">
+
+    <div class="section">
+        <h2 onclick="toggleText('about-text')">關於我</h2>
+        <p id="about-text">
+            <strong>個人介紹</strong><br>
+            你好，我是Eugene Chan，一個喜歡寫程式的學生。<br><br>
+            <strong>我會做什麼</strong><br>
+            Discord bot, Minecraft bot, Python開發, Minecraft動畫。
+        </p>
+    </div>
+
+    <div class="section">
+        <h2 onclick="toggleText('contact-text')">聯絡資訊</h2>
+        <div id="contact-text" class="contact-buttons">
+            <a href="https://github.com/Eugene526" target="_blank">GitHub</a>
+            <a href="mailto:eugenechan526@gmail.com">Email</a>
+        </div>
+    </div>
+    <div class="footer">
+        © 2024 Eugene Chan. All rights reserved.
+    </div>
+
+    <script>
+        function toggleText(id) {
+            var text = document.getElementById(id);
+            if (text.style.display === "none" || text.style.display === "") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
