@@ -34,6 +34,7 @@
             width: 80%;
             max-width: 600px;
             margin-bottom: 20px;
+            transition: all 0.3s ease-in-out; /* 添加過渡效果 */
         }
         .section h2 {
             cursor: pointer;
@@ -47,6 +48,12 @@
             text-align: left;
             margin-top: 20px;
             line-height: 1.6;
+            opacity: 0; /* 初始透明度 */
+            transition: opacity 0.3s ease-in-out; /* 添加過渡效果 */
+        }
+        .section p.show, .contact-buttons.show {
+            display: block;
+            opacity: 1; /* 顯示時的透明度 */
         }
         .contact-buttons a, .article-list a, .close-article {
             display: block;
@@ -104,10 +111,10 @@
     <script>
         function toggleText(id) {
             var text = document.getElementById(id);
-            if (text.style.display === "none" || text.style.display === "") {
-                text.style.display = "block";
+            if (text.classList.contains('show')) {
+                text.classList.remove('show');
             } else {
-                text.style.display = "none";
+                text.classList.add('show');
             }
         }
 
