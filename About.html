@@ -34,7 +34,6 @@
             width: 80%;
             max-width: 600px;
             margin-bottom: 20px;
-            transition: all 0.3s ease-in-out;
         }
         .section h2 {
             cursor: pointer;
@@ -42,20 +41,14 @@
             padding: 10px;
             background-color: #d4f1c5;
             border-radius: 5px;
-            transition: background-color 0.3s ease-in-out;
         }
-        .section h2:hover {
-            background-color: #b2e0a8;
-        }
-        .section p, .contact-buttons {
+        .section p, .contact-buttons, .article-list, .article-content {
             display: none;
             text-align: left;
             margin-top: 20px;
             line-height: 1.6;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
         }
-        .contact-buttons a {
+        .contact-buttons a, .article-list a, .close-article {
             display: block;
             text-decoration: none;
             color: white;
@@ -64,10 +57,9 @@
             background-color: #4CAF50; /* 綠色按鈕 */
             margin-bottom: 10px;
             text-align: center;
-            transition: background-color 0.3s ease-in-out;
         }
-        .contact-buttons a:hover {
-            background-color: #45a049;
+        .close-article {
+            background-color: #f44336; /* 紅色按鈕 */
         }
         .header {
             text-align: center;
@@ -105,6 +97,14 @@
         </div>
     </div>
 
+    <div class="section">
+        <h2 onclick="toggleText('docs-text')">文檔</h2>
+        <div id="docs-text" class="article-list">
+            <a href="javascript:void(0)" onclick="showArticle('article1')">文章1</a>
+            <a href="javascript:void(0)" onclick="showArticle('article2')">文章2</a>
+            <a href="javascript:void(0)" onclick="showArticle('article3')">文章3</a>
+        </div>
+    </div>
     <div class="footer">
         © 2024 Eugene Chan. All rights reserved.
     </div>
@@ -114,15 +114,19 @@
             var text = document.getElementById(id);
             if (text.style.display === "none" || text.style.display === "") {
                 text.style.display = "block";
-                setTimeout(function() {
-                    text.style.opacity = "1";
-                }, 10);
             } else {
-                text.style.opacity = "0";
-                setTimeout(function() {
-                    text.style.display = "none";
-                }, 300);
+                text.style.display = "none";
             }
+        }
+
+        function showArticle(id) {
+            var article = document.getElementById(id);
+            article.style.display = "block";
+        }
+
+        function closeArticle(id) {
+            var article = document.getElementById(id);
+            article.style.display = "none";
         }
     </script>
 </body>
