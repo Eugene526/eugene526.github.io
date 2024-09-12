@@ -34,6 +34,7 @@
             width: 80%;
             max-width: 600px;
             margin-bottom: 20px;
+            transition: all 0.3s ease-in-out;
         }
         .section h2 {
             cursor: pointer;
@@ -41,12 +42,18 @@
             padding: 10px;
             background-color: #d4f1c5;
             border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .section h2:hover {
+            background-color: #b2e0a8;
         }
         .section p, .contact-buttons {
             display: none;
             text-align: left;
             margin-top: 20px;
             line-height: 1.6;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
         .contact-buttons a {
             display: block;
@@ -57,10 +64,27 @@
             background-color: #4CAF50; /* 綠色按鈕 */
             margin-bottom: 10px;
             text-align: center;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .contact-buttons a:hover {
+            background-color: #45a049;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            padding: 10px;
+            background-color: #d4f1c5;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Eugene Chan</h1>
+    </div>
     <img src="https://render.skinmc.net/3d.php?user=5b4f88fb-0267-43f1-9eb2-a910187954b4&vr=-10&hr0&hrh=25&aa=&headOnly=true&ratio=50" alt="頭像" class="profile-pic" onclick="location.reload()">
 
     <div class="section">
@@ -80,6 +104,7 @@
             <a href="mailto:eugenechan526@gmail.com">Email</a>
         </div>
     </div>
+
     <div class="footer">
         © 2024 Eugene Chan. All rights reserved.
     </div>
@@ -89,8 +114,14 @@
             var text = document.getElementById(id);
             if (text.style.display === "none" || text.style.display === "") {
                 text.style.display = "block";
+                setTimeout(function() {
+                    text.style.opacity = "1";
+                }, 10);
             } else {
-                text.style.display = "none";
+                text.style.opacity = "0";
+                setTimeout(function() {
+                    text.style.display = "none";
+                }, 300);
             }
         }
     </script>
