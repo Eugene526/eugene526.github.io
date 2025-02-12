@@ -135,5 +135,5 @@ footer p {
 .social-icon img {
     width: 24px;
     height: 24px;
-    filter: invert(1); /* 讓圖示變成白色 */
+    filter: invert(1);
 }
