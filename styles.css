@@ -137,3 +137,17 @@ footer p {
     height: 24px;
     filter: invert(1);
 }
+
+.avatar {
+    display: block;
+    width: 120px;  /* 調整頭像大小 */
+    height: 120px;
+    border-radius: 50%; /* 讓頭像變圓 */
+    object-fit: cover; /* 確保圖片不變形 */
+    margin: 0 auto 15px; /* 置中並與標題有間距 */
+    transition: transform 0.6s ease-in-out; /* 讓旋轉動畫更流暢 */
+}
+
+.avatar:active {
+    transform: rotate(360deg); /* 點擊時旋轉一圈 */
+}
