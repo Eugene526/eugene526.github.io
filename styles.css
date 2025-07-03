@@ -210,22 +210,10 @@ footer p {
 }
 
 .social-btn:hover {
-    background-color: #dddddd; /* 更淺一點的灰色 */
+    background-color: #dddddd; /* 更淺一點 */
     transform: translateY(-3px);
 }
 
-/* 移除原本每個平台的專屬背景色 */
-.social-btn.discord,
-.social-btn.github,
-.social-btn.youtube {
-    background-color: #bbbbbb !important;
-}
-
-.social-btn.discord:hover,
-.social-btn.github:hover,
-.social-btn.youtube:hover {
-    background-color: #dddddd !important;
-}
 
 .social-btn span {
     font-size: 0.95em;
