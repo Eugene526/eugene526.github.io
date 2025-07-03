@@ -186,7 +186,6 @@ footer p {
 }
 
 .contact-item img {
-    filter: invert(1);
     opacity: 0.8;
 }
 
@@ -203,7 +202,6 @@ footer p {
     align-items: center;
     gap: 8px;
     padding: 8px 15px;
-    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     transition: all 0.3s ease;
     color: white;
@@ -211,13 +209,38 @@ footer p {
 }
 
 .social-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
 }
 
+/* 圖片設定 */
 .social-btn img {
     width: 20px;
     height: 20px;
+    background-color: transparent;
+}
+
+/* Discord 按鈕 */
+.social-btn.discord {
+    background-color: #5865F2 !important;
+}
+.social-btn.discord:hover {
+    background-color: #4752c4 !important;
+}
+
+/* GitHub 按鈕 */
+.social-btn.github {
+    background-color: #333 !important;
+}
+.social-btn.github:hover {
+    background-color: #444 !important;
+}
+
+/* YouTube 按鈕 */
+.social-btn.youtube {
+    background-color: #FF0000 !important;
+}
+.social-btn.youtube:hover {
+    background-color: #cc0000 !important;
 }
 
 .social-btn span {
@@ -250,29 +273,3 @@ footer p {
 .hidden {
     display: none;
 }
-
-
-.social-btn.discord {
-    background-color: #5865F2; /* Discord 紫藍色 */
-}
-
-.social-btn.discord:hover {
-    background-color: #4752c4;
-}
-
-.social-btn.github {
-    background-color: #333; /* GitHub 黑灰色 */
-}
-
-.social-btn.github:hover {
-    background-color: #444;
-}
-
-.social-btn.youtube {
-    background-color: #FF0000; /* YouTube 紅色 */
-}
-
-.social-btn.youtube:hover {
-    background-color: #cc0000;
-}
-
