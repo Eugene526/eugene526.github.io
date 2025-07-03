@@ -3,61 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eugene</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Eugene's Terminal</title>
+    <style>
+        :root {
+            --bg-color: #1e1e1e;
+            --text-color: #f0f0f0;
+            --accent-color: #4CAF50;
+            --prompt-color: #569CD6;
+            --command-color: #CE9178;
+            --error-color: #F44747;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        
+        .terminal {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #333;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .terminal-header {
+            background-color: #333;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+            margin-right: 10px;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .button-red { background-color: #FF5F56; }
+        .button-yellow { background-color: #FFBD2E; }
+        .button-green { background-color: #27C93F; }
+        
+        .terminal-title {
+            flex-grow: 1;
+            text-align: center;
+        }
+        
+        .terminal-body {
+            padding: 20px;
+            height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .prompt {
+            color: var(--prompt-color);
+        }
+        
+        .command {
+            color: var(--command-color);
+        }
+        
+        .output {
+            margin: 10px 0 20px 0;
+            white-space: pre-line;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--text-color);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .error {
+            color: var(--error-color);
+        }
+        
+        .success {
+            color: var(--accent-color);
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        li:before {
+            content: "> ";
+            color: var(--prompt-color);
+        }
+    </style>
 </head>
 <body>
-    <div class="loader">
-        <div class="square square1"></div>
-        <div class="square square2"></div>
-        <p class="loading-text" id="loading-text">載入中...</p>
-    </div>
-
-    <div class="container">
-        <header>
-            <a href="#">
-                <img src="https://i.postimg.cc/kMyX6Kq3/image.png" alt="Eugene's Avatar" class="avatar">
-            </a>
-            <h1>🌟 Hi, I'm Eugene!</h1>
-            <p>👋 歡迎來到我的個人網站！我對程式語言充滿熱情，尤其是在 Discord Bot 相關的開發與管理。</p>
-        </header>
-
-        <section id="about">
-            <h2>🚀 關於我</h2>
-            <ul>
-                <li>🎮 一個普通的Minecraft 玩家</li>
-                <li>🤖 Discord Bot 開發者，使用 Node.js、discord.js 和 Discord.py，目前主要以 Discord.py 為主要框架</li>
-            </ul>
-        </section>
-
-        <section id="skills">
-            <h2>🛠️ 技能</h2>
-            <ul>
-                <li>程式語言: JavaScript (Node.js)學習中, Python (Discord.py)</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>📫 聯絡方式</h2>
-            <p>💬 Discord: <a href="https://discord.com/users/eugene526" target="_blank">eugene526</a></p>
-        </section>
-
-        <footer>
-            <div class="social-links">
-                <a href="https://discord.com/users/eugene526" target="_blank" class="social-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" width="24" height="24">
-                </a>
-                <a href="https://github.com/eugene526" target="_blank" class="social-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="24" height="24">
-                </a>
-                <a href="https://www.youtube.com/@EugeneTV-526" target="_blank" class="social-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" alt="Youtube" width="24" height="24">
-                </a>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <div class="terminal-button button-red"></div>
+                <div class="terminal-button button-yellow"></div>
+                <div class="terminal-button button-green"></div>
             </div>
-            <p>© 2025 Eugene. All rights reserved.</p>
-            <p>Made with by Eugene</p>
-        </footer>
+            <div class="terminal-title">Eugene's Terminal</div>
+        </div>
+        
+        <div class="terminal-body">
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="command">cat about_me.txt</span>
+                <div class="output">
+                    ========== ABOUT EUGENE ==========
+                    
+                    🌟 Hi, I'm Eugene!
+                    👋 Welcome to my terminal-style portfolio
+                    
+                    🎮 An ordinary Minecraft player
+                    🤖 Discord Bot developer using Node.js, discord.js and Discord.py
+                    Currently focusing on Discord.py framework
+                </div>
+            </div>
+            
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="command">ls skills/</span>
+                <div class="output">
+                    Programming Languages/
+                    Tools/
+                    Frameworks/
+                </div>
+            </div>
+            
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="command">cat skills/Programming\ Languages</span>
+                <div class="output">
+                    JavaScript (Node.js) - Learning
+                    Python (Discord.py) - Proficient
+                </div>
+            </div>
+            
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="command">./contact.sh</span>
+                <div class="output">
+                    ======= CONTACT INFORMATION =======
+                    
+                    💬 Discord: <a href="https://discord.com/users/eugene526" target="_blank">eugene526</a>
+                    💻 GitHub: <a href="https://github.com/eugene526" target="_blank">eugene526</a>
+                    📺 YouTube: <a href="https://www.youtube.com/@EugeneTV-526" target="_blank">EugeneTV-526</a>
+                </div>
+            </div>
+            
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="command">help</span>
+                <div class="output">
+                    Available commands:
+                    - about_me: Show information about me
+                    - skills: Display my skills
+                    - contact: Show contact information
+                    - clear: Clear terminal
+                </div>
+            </div>
+            
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="command">date</span>
+                <div class="output">
+                    <script>
+                        document.write(new Date().toLocaleString('zh-TW'));
+                    </script>
+                </div>
+            </div>
+            
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="command">echo "Thanks for visiting!"</span>
+                <div class="output">
+                    Thanks for visiting!
+                </div>
+            </div>
+            
+            <div class="output">
+                <span class="prompt">user@eugene ~ $</span> <span class="cursor"></span>
+            </div>
+        </div>
     </div>
-
+    
+    <script>
+        // 簡單的終端機互動效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const terminalBody = document.querySelector('.terminal-body');
+            const lastOutput = document.querySelector('.output:last-child');
+            
+            // 模擬打字效果
+            function typeWriter(element, text, speed) {
+                let i = 0;
+                function typing() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(typing, speed);
+                    } else {
+                        element.innerHTML += '<span class="cursor"></span>';
+                    }
+                }
+                typing();
+            }
+            
+            // 初始載入動畫
+            setTimeout(() => {
+                const commands = document.querySelectorAll('.command');
+                commands.forEach((cmd, index) => {
+                    const text = cmd.textContent;
+                    cmd.textContent = '';
+                    setTimeout(() => {
+                        typeWriter(cmd, text, 50 + (index * 10));
+                    }, index * 500);
+                });
+            }, 1000);
+            
+            // 簡單的命令處理 (僅為視覺效果)
+            terminalBody.addEventListener('click', function(e) {
+                if (e.target.classList.contains('cursor')) {
+                    const prompt = e.target.parentElement.querySelector('.prompt');
+                    if (prompt) {
+                        const command = prompt.nextElementSibling;
+                        if (command && command.classList.contains('command')) {
+                            command.textContent = '';
+                            e.target.remove();
+                            typeWriter(command, 'new_command', 50);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
