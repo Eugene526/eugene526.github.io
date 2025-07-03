@@ -202,45 +202,29 @@ footer p {
     align-items: center;
     gap: 8px;
     padding: 8px 15px;
+    background-color: #bbbbbb; /* 淺灰色 */
     border-radius: 8px;
     transition: all 0.3s ease;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .social-btn:hover {
+    background-color: #dddddd; /* 更淺一點的灰色 */
     transform: translateY(-3px);
 }
 
-/* 圖片設定 */
-.social-btn img {
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-}
-
-/* Discord 按鈕 */
-.social-btn.discord {
-    background-color: #5865F2 !important;
-}
-.social-btn.discord:hover {
-    background-color: #4752c4 !important;
-}
-
-/* GitHub 按鈕 */
-.social-btn.github {
-    background-color: #333 !important;
-}
-.social-btn.github:hover {
-    background-color: #444 !important;
-}
-
-/* YouTube 按鈕 */
+/* 移除原本每個平台的專屬背景色 */
+.social-btn.discord,
+.social-btn.github,
 .social-btn.youtube {
-    background-color: #FF0000 !important;
+    background-color: #bbbbbb !important;
 }
+
+.social-btn.discord:hover,
+.social-btn.github:hover,
 .social-btn.youtube:hover {
-    background-color: #cc0000 !important;
+    background-color: #dddddd !important;
 }
 
 .social-btn span {
