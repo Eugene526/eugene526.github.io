@@ -251,3 +251,29 @@ footer p {
 .hidden {
     display: none;
 }
+
+
+.social-btn.discord {
+    background-color: #5865F2; /* Discord 紫藍色 */
+}
+
+.social-btn.discord:hover {
+    background-color: #4752c4;
+}
+
+.social-btn.github {
+    background-color: #333; /* GitHub 黑灰色 */
+}
+
+.social-btn.github:hover {
+    background-color: #444;
+}
+
+.social-btn.youtube {
+    background-color: #FF0000; /* YouTube 紅色 */
+}
+
+.social-btn.youtube:hover {
+    background-color: #cc0000;
+}
+
