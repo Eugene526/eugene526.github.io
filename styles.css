@@ -275,10 +275,10 @@ footer p {
 
 .cursor {
     display: inline-block;
-    background-color: transparent;
-    color: orange;
-    animation: blink 0.75s step-end infinite;
+    color: #4caf50;
+    animation: none; 
 }
+
 
 @keyframes typing {
     from { width: 0 }
