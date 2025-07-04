@@ -67,16 +67,20 @@
     document.addEventListener("DOMContentLoaded", () => {
         const text = "我是一位來自台灣的國中生，熱衷於LINE與Discord機器人的開發與技術學習，專注於 Discord Bot 與 Minecraft 插件的設計與實作。";
         const typedText = document.querySelector(".typed-text");
+        const cursor = document.querySelector(".cursor");
         let index = 0;
-
+    
         function type() {
             if (index < text.length) {
                 typedText.textContent += text.charAt(index);
                 index++;
                 setTimeout(type, 90);
+            } else {
+                typedText.style.borderRight = "none";
+                cursor.style.display = "none";  // 或 cursor.style.animation = "none";
             }
         }
-
+    
         type();
     });
 </script>
