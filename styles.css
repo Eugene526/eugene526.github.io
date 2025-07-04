@@ -276,12 +276,12 @@ footer p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 .cursor {
     color: #4caf50;
-    animation: blink 0.75s step-end infinite;
-    user-select: none; 
+    animation: none;
+    user-select: none;
 }
+
 
 @keyframes blink {
     50% { opacity: 0; }
