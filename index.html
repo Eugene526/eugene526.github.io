@@ -76,10 +76,9 @@
                 index++;
                 setTimeout(type, 90);
             } else {
-                // 打完字，停掉游標閃爍，並隱藏游標
                 cursor.style.animation = "none";
-                cursor.style.opacity = "1";  // 游標保持亮著也行，或：
-                // cursor.style.display = "none"; // 如果要消失就打開這行
+                cursor.style.opacity = "1";  
+                cursor.style.display = "none";
             }
         }
     
