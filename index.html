@@ -19,7 +19,7 @@
                 <img src="https://i.postimg.cc/kMyX6Kq3/image.png" alt="Eugene's Avatar" class="avatar">
             </a>
             <h1>🌟 Hi, I'm Eugene!</h1>
-            <p>👋 歡迎來到我的個人網站！我對程式語言充滿熱情，尤其是在 Discord Bot 相關的開發與管理。</p>
+            <p><span class="typed-text"></span><span class="cursor">|</span></p>
         </header>
 
         <section id="about">
@@ -63,5 +63,23 @@
             <p class="copyright">© 2025 Eugene. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const text = "我是一位來自台灣的國中生，熱衷於LINE與Discord機器人的開發與技術學習，專注於 Discord Bot 與 Minecraft 插件的設計與實作。";
+        const typedText = document.querySelector(".typed-text");
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typedText.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 90);
+            }
+        }
+
+        type();
+    });
+</script>
+
 </body>
 </html>
