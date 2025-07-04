@@ -275,15 +275,3 @@ footer p {
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.cursor {
-    color: #4caf50;
-    animation: none;
-    user-select: none;
-}
-
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
