@@ -267,7 +267,6 @@ footer p {
     color: #d0d0d0;
     white-space: nowrap;
     overflow: hidden;
-    /* 移除 border-right，改由游標字元顯示 */
     border-right: none;
     animation: none;
     display: inline-block;
@@ -279,7 +278,7 @@ footer p {
 .cursor {
     color: #4caf50;
     animation: blink 0.75s step-end infinite;
-    user-select: none; /* 避免被選取 */
+    user-select: none; 
 }
 
 @keyframes blink {
