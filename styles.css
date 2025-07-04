@@ -265,8 +265,9 @@ footer p {
 .typed-text {
     font-size: 1.1em;
     color: #d0d0d0;
-    white-space: nowrap;
-    overflow: hidden;
+    white-space: normal;
+    overflow-wrap: break-word; 
+    word-break: break-word;    
     border-right: none;
     animation: none;
     display: inline-block;
@@ -274,6 +275,7 @@ footer p {
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .cursor {
     color: #4caf50;
