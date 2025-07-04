@@ -193,24 +193,36 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    margin: 10px 0;
+    gap: 6px;
+    margin: 8px 0;
     flex-wrap: wrap;
 }
 
 .social-btn {
     display: flex;
     align-items: center;
-    gap: 4px;
-    padding: 4px 8px;
+    gap: 3px;
+    padding: 2px 6px;
     background-color: #bbbbbb;
     border-radius: 4px;
     transition: all 0.2s ease;
     color: black;
     text-decoration: none;
-    font-size: 0.75em;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 0.7em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     line-height: 1;
+    height: 26px;
+}
+
+.social-btn img {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+    margin-bottom: 1px;
+}
+
+.social-btn span {
+    font-size: 0.7em;
 }
 
 .social-btn:hover {
@@ -218,19 +230,10 @@ footer p {
     transform: translateY(-1px);
 }
 
-.social-btn img {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.2s ease;
-}
-
 .social-btn:hover img {
     transform: scale(1.05);
 }
 
-.social-btn span {
-    font-size: 0.75em;
-}
 
 .copyright {
     color: #aaa;
