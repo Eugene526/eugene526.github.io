@@ -263,28 +263,26 @@ footer p {
 }
 
 .typed-text {
-    font-size: 1.2em;
-    color: #ffffff;
+    font-size: 1.1em;
+    color: #d0d0d0;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 0.15em solid orange;
-    animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    /* 移除 border-right，改由游標字元顯示 */
+    border-right: none;
+    animation: none;
     display: inline-block;
     max-width: 100%;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cursor {
-    display: inline-block;
     color: #4caf50;
-    animation: none; 
-}
-
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    animation: blink 0.75s step-end infinite;
+    user-select: none; /* 避免被選取 */
 }
 
 @keyframes blink {
     50% { opacity: 0; }
 }
+
